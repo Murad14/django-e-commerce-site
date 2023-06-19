@@ -36,7 +36,7 @@
         </div>
 
         <div class="row">
-            <div class="col-md-3 offset-md-4">
+            <div class="col-md-3 offset-md-5 ">
                 <ul class="pagination">
                     {% if product_objects.has_previous %}
                         <li class="page-item">
@@ -45,7 +45,7 @@
                     {% endif %}
 
                     <li class="page-item active">
-                        <a class="page-link" href="?page={{ product_objects.number }}">Current</a>
+                        <a class="page-link" href="?item_name={{ request.GET.item_name }}&page={{ product_objects.number  }}">Current</a>
                     </li>
 
                     {% if product_objects.has_next %}
