@@ -10,3 +10,12 @@
     height: 240px;
     object-fit: contain;
 }
+
+.card-text{
+    color: green;
+    font-weight: 800;
+}
+
+.card-title{
+    font-weight: 900;
+}
