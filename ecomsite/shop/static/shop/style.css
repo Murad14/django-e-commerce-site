@@ -1,12 +1,12 @@
 .card {
-    width: 100%;
-    max-width: 300px; /* Adjust this value to control the maximum width of each card */
-    display: inline-block; /* Add this line to make the cards display inline */
-    margin-right: 10px; /* Add some spacing between the cards */
-    margin-bottom: 10px; /* Add some spacing between the rows */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.card-img-top {
-    object-fit: cover;
-    height: 200px; /* Adjust this value to control the height of the image */
+
+.card .card-img-top {
+    width: 240px;
+    height: 240px;
+    object-fit: contain;
 }
