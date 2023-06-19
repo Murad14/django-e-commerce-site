@@ -2,8 +2,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 50px;
 }
 
+.custom-card-margin{
+    margin-bottom: .10rem;
+}
 
 .card .card-img-top {
     width: 240px;
