@@ -30,6 +30,13 @@
                             $ {{product.price}}
                         </div>
                     </div>
+                    <div class="d-grid gap-2 mb-4">
+                        <div>
+                            <a href="/{{ product.id }}" class="btn btn-warning" style="margin-right: 10px;">View</a>
+                            <a href="/{{ product.id }}" class="btn btn-warning">Add to cart</a>
+                        </div>
+                       
+                    </div>  
                 </div>
             </div>
             {% endfor %}
