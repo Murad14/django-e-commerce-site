@@ -30,7 +30,7 @@
                             <a class="nav-link" href="#">Features</a>
                           </li>
                           <li class="nav-item">
-                            <button id="cart" type="button" class="btn btn-secondary" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-content="Bottom popover">
+                            <button id="cart" type="button" class="btn btn-secondary" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-content="Bottom popover" data-bs-html="true">
                                 Cart(0)
                               </button>
                           </li>
@@ -131,9 +131,19 @@
         
     })
 
-    const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
-    const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
-    document.getElementById("cart").setAttribute('data-content','<h2>Hello</h2>');
+    document.getElementById('cart').setAttribute('data-bs-content', '<h6>This is cart</h6>');
+
+    var popoverTriggerList = [].slice.call(document.querySelectorAll('[id="cart"]'))
+    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) 
+    {
+        return new bootstrap.Popover(popoverTriggerEl)
+
+        {
+            html:true
+        }
+
+    })
+ 
 </script>
 
 </html>
