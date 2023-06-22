@@ -57,7 +57,7 @@
                 <div class="card">
                     <img src="{{product.image}}" class="card-img-top">
                     <div class="card-body">
-                        <div class="card-title">
+                        <div id="nm{{product.id}}" class="card-title">
                             {{product.title}}
                         </div>
                         <div class="card-text">
@@ -103,10 +103,9 @@
 
 <script type="text/javascript">
     console.log('This is working');
-    let cart;
 
     if(localStorage.getItem('cart')==null){
-        cart = {};
+       let cart = {};
     }
     else{
         cart = JSON.parse(localStorage.getItem('cart'));
@@ -129,20 +128,32 @@
         document.getElementById("cart").innerHTML = "Cart("+ Object.keys(cart).length +")";
         console.log();
         
-    })
+    });
 
-    document.getElementById('cart').setAttribute('data-bs-content', '<h6>This is cart</h6>');
 
-    var popoverTriggerList = [].slice.call(document.querySelectorAll('[id="cart"]'))
-    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) 
-    {
-        return new bootstrap.Popover(popoverTriggerEl)
-
-        {
-            html:true
+    DisplayCart(cart);
+    function DisplayCart(cart){
+        let cartString = "" 
+        cartString += "<h6>This is your cart</h6>"; 
+        let cartIndex = 1; 
+        for(let x in cart){ //when in browser dev tool console panel I write 'cart' I got value like this: {1: 1, 2: 8, 3: 3} , for cart item 2 what is the value of x?
+            var element = document.getElementById("nm" + x); 
+            if (element){ 
+                cartString += cartIndex; 
+                cartString += element.innerHTML + "Qty:" + cart[x] + "<br>"; 
+                cartIndex +=1; 
+            }
+           
         }
+        document.getElementById("cart").setAttribute('data-bs-content', cartString);
 
-    })
+        var popoverTriggerList = [].slice.call(document.querySelectorAll('[id="cart"]'));
+        var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+            return new bootstrap.Popover(popoverTriggerEl, {
+                html: true
+            });
+        });
+    }
  
 </script>
 
