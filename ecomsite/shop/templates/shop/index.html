@@ -136,7 +136,7 @@
         let cartString = "" 
         cartString += "<h6>This is your cart</h6>"; 
         let cartIndex = 1; 
-        for(let x in cart){ //when in browser dev tool console panel I write 'cart' I got value like this: {1: 1, 2: 8, 3: 3} , for cart item 2 what is the value of x?
+        for(let x in cart){ 
             var element = document.getElementById("nm" + x); 
             if (element){ 
                 cartString += cartIndex; 
