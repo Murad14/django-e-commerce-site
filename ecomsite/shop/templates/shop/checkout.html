@@ -5,28 +5,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
 <body>
     <div class="container">
         <div class="col-md-12">
             <div class="row">
-                <ul class="list-group">
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                      A list item
-                      <span class="badge bg-primary rounded-pill">14</span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                      A second list item
-                      <span class="badge bg-primary rounded-pill">2</span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                      A third list item
-                      <span class="badge bg-primary rounded-pill">1</span>
-                    </li>
-                  </ul>
+                <ul class="list-group" id="item_list">
+            
+                </ul>
             </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <form method="POST" class="row g-3">
+              {% csrf_token %}
+              <div class="col-md-6">
+                <label for="inputEmail4" class="form-label">Name</label>
+                <input id="name" name="name" type="text" class="form-control" id="inputEmail4" placeholder="ex:John">
+              </div>
+              <div class="col-md-6">
+                <label for="inputPassword4" class="form-label">Email</label>
+                <input id="email" name="email" type="text" class="form-control" id="inputPassword4" placeholder="ex: john@email.com">
+              </div>
+              <div class="col-12">
+                <label for="inputAddress" class="form-label">Address</label>
+                <input id="address" name="address" type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+              </div>
+              <div class="col-md-6">
+                <label for="inputCity" class="form-label">City</label>
+                <input id="city" name="city" type="text" class="form-control" id="inputCity">
+              </div>
+              <div class="col-md-4">
+                <label for="inputState" class="form-label">State</label>
+                <input id="state" name="state" type="text" class="form-control" id="inputCity">
+
+              </div>
+              <div class="col-md-2">
+                <label for="inputZip" class="form-label">Zip</label>
+                <input id="zipcode" name="zipcode" type="text" class="form-control" id="inputZip">
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn btn-primary">Place Order</button>
+              </div>
+            </form>
+
+          </div>
         </div>
     </div>
 </body>
+<script type="text/javascript">
+
+  if (localStorage.getItem('cart')==null){
+    let cart ={}
+  }else{
+    cart = JSON.parse(localStorage.getItem('cart'));
+  }
+
+  for (item in cart){
+    let name = cart[item][1];
+    let quantity = cart[item][0];
+
+    itemString = `<li class="list-group-item">${name}-${quantity}</li>`
+    
+    $('#item_list').append(itemString);
+  }
+
+</script>
 </html>
