@@ -21,4 +21,7 @@ def index(req):
 def detail(req,id):
     product_object =Products.objects.get(id=id)
     return render(req,'shop/detail.html',{'product_object':product_object})
-    
+
+def checkout(req):
+    return render(req, 'shop/checkout.html')
+     
