@@ -21,6 +21,7 @@
           <div class="col-md-12">
             <form method="POST" class="row g-3">
               {% csrf_token %}
+                <input type="hidden" id="items" name="items">
               <div class="col-md-6">
                 <label for="inputEmail4" class="form-label">Name</label>
                 <input id="name" name="name" type="text" class="form-control" id="inputEmail4" placeholder="ex:John">
@@ -67,10 +68,14 @@
     let name = cart[item][1];
     let quantity = cart[item][0];
 
-    itemString = `<li class="list-group-item">${name}-${quantity}</li>`
+    if (name!==undefined && quantity !==undefined){
+      itemString = `<li class="list-group-item">${name}-${quantity}</li>`
+      $('#item_list').append(itemString);
+    }
     
-    $('#item_list').append(itemString);
   }
+
+  $('#items').val(JSON.stringify(cart));
 
 </script>
 </html>
