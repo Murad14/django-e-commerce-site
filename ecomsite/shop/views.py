@@ -32,8 +32,9 @@ def checkout(req):
         city = req.POST.get('city',"")
         state = req.POST.get('state',"")
         zipcode = req.POST.get('zipcode',"")
+        total = req.POST.get('total',"")
         
-        order = Order(items=items,name=name,email=email,address=address,city=city,state=state,zipcode=zipcode)
+        order = Order(items=items,name=name,email=email,address=address,city=city,state=state,zipcode=zipcode,total=total)
         order.save()
     
     return render(req, 'shop/checkout.html')
