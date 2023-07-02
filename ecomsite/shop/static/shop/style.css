@@ -32,3 +32,48 @@
     margin-top: 20px;
     margin-bottom: 20px;
 }
+
+.product-image {
+    width: 100%;
+    max-height: 400px;
+    object-fit: contain;
+}
+
+.product-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.product-price {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.product-discount-price {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+} 
+
+.product-description {
+    margin-top: 10px;
+}
+
+/* Responsive Styles */
+
+@media (max-width: 768px) {
+    .product-image {
+        max-height: 200px;
+    }
+
+    .product-title {
+        font-size: 20px;
+    }
+
+    .product-price,
+    .product-discount-price,
+    .product-description {
+        font-size: 16px;
+    }
+}
